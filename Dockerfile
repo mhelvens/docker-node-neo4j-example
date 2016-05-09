@@ -24,4 +24,4 @@ EXPOSE 80 7474
 # TODO
 
 # Start neo4j and node servers
-CMD [ "/bin/bash", "/entrypoint.sh" ]
+CMD [ "/bin/bash", "entrypoint.sh" ]
