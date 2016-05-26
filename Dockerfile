@@ -1,9 +1,9 @@
 FROM node:wheezy
 
 # update
-RUN apt-get update --quiet --quiet \
-    && apt-get install --quiet --quiet --no-install-recommends lsof \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update --quiet --quiet \
+#    && apt-get install --quiet --quiet --no-install-recommends lsof \
+#    && rm -rf /var/lib/apt/lists/*
 
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app

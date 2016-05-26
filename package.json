@@ -4,7 +4,7 @@
   "description": "an example docker image with a node.js server that uses neo4j",
   "main": "server.js",
   "scripts": {
-    "start":        "node src/server.js",
+    "start":        "node src/server.js"
   },
   "repository": {
     "type": "git",
