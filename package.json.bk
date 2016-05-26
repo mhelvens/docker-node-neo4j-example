@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start":        "node src/server.js",
+    "docker-build": "docker build -t mhelvens/docker-node-neo4j-example .",
+    "docker-run":   "docker run -p 80:80 -p 7474:7474 -d mhelvens/docker-node-neo4j-example"
   },
   "repository": {
     "type": "git",
