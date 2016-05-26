@@ -1,10 +1,5 @@
 FROM node:wheezy
 
-# update
-#RUN apt-get update --quiet --quiet \
-#    && apt-get install --quiet --quiet --no-install-recommends lsof \
-#    && rm -rf /var/lib/apt/lists/*
-
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app
 COPY .       /usr/src/app
@@ -14,14 +9,6 @@ WORKDIR      /usr/src/app
 RUN npm install
 
 # Install Neo4j
-#WORKDIR /root
-#RUN wget -O - https://debian.neo4j.org/neotechnology.gpg.key | apt-key add -
-#RUN echo 'deb http://debian.neo4j.org/repo stable/' >/tmp/neo4j.list
-#RUN mv /tmp/neo4j.list /etc/apt/sources.list.d
-#RUN apt-get update
-#RUN apt-cache madison neo4j
-#RUN apt-get install -y neo4j=2.3.3
-
 WORKDIR /root
 ENV NEO4J_VERSION 2.3.3
 ENV NEO4J_EDITION community
