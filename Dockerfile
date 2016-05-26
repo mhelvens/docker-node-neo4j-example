@@ -51,4 +51,5 @@ EXPOSE 7474
 
 WORKDIR      /usr/src/app
 # Start neo4j and node servers
-CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] ###, "&&", "/bin/bash", "/docker-entrypoint.sh", "neo4j" ]
+CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
+###, "&&", "/bin/bash", "/docker-entrypoint.sh", "neo4j" ]
