@@ -18,14 +18,15 @@ Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https:
 
 ## Dev env details
 
-Linux Image (Openstack) 
+AWS Image `ami-878412f4`
 
 ```
+Distributor ID:	Ubuntu
 Description:	Ubuntu 16.04 LTS
 Release:	16.04
 Codename:	xenial
 
-Linux sjn-devbox-ubuntu 4.4.0-22-generic #40-Ubuntu SMP Thu May 12 22:03:46 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+Linux ip-172-31-1-34 4.4.0-22-generic #40-Ubuntu SMP Thu May 12 22:03:46 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
 
 ## docker
 Client:
