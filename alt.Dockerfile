@@ -1,6 +1,14 @@
 FROM node:wheezy
 
-RUN apt-get update -y && apt-get install openjdk-8-jre
+RUN apt-get update --fix-missing && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+    openjdk-7-jre \
+    apt-get autoremove -y && \
+    apt-get autoclean && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app
