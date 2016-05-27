@@ -20,6 +20,31 @@ Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https:
 
 Linux Image (Openstack) 
 
+```
+Description:	Ubuntu 16.04 LTS
+Release:	16.04
+Codename:	xenial
+
+Linux sjn-devbox-ubuntu 4.4.0-22-generic #40-Ubuntu SMP Thu May 12 22:03:46 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+## docker
+Client:
+ Version:      1.11.1
+ API version:  1.23
+ Go version:   go1.5.4
+ Git commit:   5604cbe
+ Built:        Tue Apr 26 23:43:49 2016
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      1.11.1
+ API version:  1.23
+ Go version:   go1.5.4
+ Git commit:   5604cbe
+ Built:        Tue Apr 26 23:43:49 2016
+ OS/Arch:      linux/amd64
+```
+
 ## New Build
 
 ```bash
