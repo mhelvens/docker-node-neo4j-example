@@ -130,6 +130,16 @@ docker stop ${CONTAINER_ID} && docker rm -f ${CONTAINER_ID}
 ```
 Done!
 
+## Pushed to Docker hub
+
+- https://hub.docker.com/r/snewhouse/docker-node-neo4j-example/tags/
+
+```bash
+docker push snewhouse/docker-node-neo4j-example:test-0.2
+```
+
+get me quick `docker pull snewhouse/docker-node-neo4j-example:test-0.2`
+
 *******
 
 ## New Dockerfile
