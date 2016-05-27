@@ -70,10 +70,11 @@ docker run \
 CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
 ```
 
-## Print output
+## Print logs and port output
 
 ```bash
 docker logs ${CONTAINER_ID}
+docker port ${CONTAINER_ID}
 ```
 
 ## curl it
@@ -81,6 +82,14 @@ docker logs ${CONTAINER_ID}
 ```bash
 curl -i  http://localhost:80
 ```
+
+**stop amd remove container**
+
+```bash
+## clean up
+docker stop ${CONTAINER_ID} && docker rm -f ${CONTAINER_ID}
+```
+Done!
 
 *******
 
