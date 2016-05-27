@@ -1,5 +1,7 @@
 FROM node:wheezy
 
+RUN apt-get update -y && apt-get install default-jre
+
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app
 COPY .       /usr/src/app
