@@ -106,8 +106,15 @@ Server: Jetty(9.2.9.v20150224)
 80/tcp -> 0.0.0.0:80
 ```
 
+## Image up on docker hub
 
-## ## Testing Dockerfile build
+```
+snewhouse/docker-node-neo4j-example:test-0.3
+```
+
+****************
+
+##Testing Dockerfile build
 
 ```bash
 docker build \
