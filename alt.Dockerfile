@@ -2,8 +2,7 @@ FROM node:wheezy
 
 RUN apt-get update --fix-missing && \
     apt-get upgrade -y && \
-    apt-get install -y \
-    openjdk-7-jre \
+    apt-get install -y openjdk-7-jre && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     apt-get clean && \
