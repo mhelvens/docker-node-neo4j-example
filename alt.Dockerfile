@@ -37,4 +37,4 @@ EXPOSE 7474
 
 # Start neo4j and node servers
 ## CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
-CMD ["/bin/bash", "/usr/src/app/docker-entrypoint.sh", "neo4j" ]
+CMD ["/bin/bash", "/docker-entrypoint.sh", "neo4j" ]
