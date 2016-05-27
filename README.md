@@ -21,7 +21,17 @@ check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/bl
 ```bash
 docker build \
 --force-rm=true \
--t snewhouse/docker-node-neo4j-example:test-0.1 .
+-t snewhouse/docker-node-neo4j-example:test-0.2 .
+```
+
+## Run
+
+```bash
+docker run \
+--publish=7474:7474 \
+--publish=80:80 \
+--volume=$HOME/neo4j/data:/data \
+-d snewhouse/docker-node-neo4j-example:test-0.2
 ```
 
 ## New Dockerfile
