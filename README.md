@@ -8,7 +8,7 @@ to figure out how to start.
 
 ### SJN test
 
-check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/sjn_test.md)
+check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/sjn/sjn_test.md)
 
 **links**  
 
