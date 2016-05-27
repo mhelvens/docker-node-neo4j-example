@@ -1,6 +1,6 @@
 FROM node:wheezy
 
-RUN apt-get update -y && apt-get install openjdk
+RUN apt-get update -y && apt-get install openjdk-8-jre
 
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app
