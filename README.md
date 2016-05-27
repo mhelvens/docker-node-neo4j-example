@@ -15,7 +15,12 @@ Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https:
 - https://github.com/neo4j/docker-neo4j/blob/89955a10604656aa8def4e3d658cc870818d7535/2.3.3/docker-entrypoint.sh  
 
 
-## New Build
+## Dev env details
+
+Linux Image (Openstack) 
+
+
+## New `docker-node-neo4j-example` Build
 
 ```bash
 docker build \
@@ -23,7 +28,7 @@ docker build \
 -t snewhouse/docker-node-neo4j-example:test-0.2 .
 ```
 
-## Run
+## Run it
 
 ```bash
 docker run \
@@ -31,6 +36,12 @@ docker run \
 --publish=80:80 \
 --volume=$HOME/neo4j/data:/data \
 -d snewhouse/docker-node-neo4j-example:test-0.2
+```
+
+## Get Container Id
+
+```bash
+docker ps
 ```
 
 ## New Dockerfile
