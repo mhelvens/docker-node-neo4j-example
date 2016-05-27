@@ -1,6 +1,6 @@
 FROM node:wheezy
 
-RUN apt-get update -y && apt-get install default-jre
+RUN apt-get update -y && apt-get install openjdk
 
 # Create app directory with source-code
 RUN mkdir -p /usr/src/app
