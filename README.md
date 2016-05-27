@@ -99,7 +99,7 @@ Server: Jetty(9.2.9.v20150224)
 }
 ```
 
-**`docker port dcca408b6e52`**
+**`docker port ${CONTAINER_ID}`**
 
 ```
 7474/tcp -> 0.0.0.0:7474
