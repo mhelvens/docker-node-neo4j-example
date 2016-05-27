@@ -46,6 +46,28 @@ Server:
  OS/Arch:      linux/amd64
 ```
 
+## Testing alt.Dockerfile build
+- needed java
+
+```bash
+git clone https://github.com/mhelvens/docker-node-neo4j-example.git
+cd docker-node-neo4j-example/
+git checkout sjn-0.1
+git branch
+git pull
+ls -l
+docker build --force-rm=true --file=alt.Dockerfile -t snewhouse/docker-node-neo4j-example:test-0.3 .
+docker images
+docker run --name docker-node-neo4j --publish=7474:7474 --publish=80:80 --volume=$HOME/neo4j/data:/data -d snewhouse/docker-node-neo4j-example:test-0.3
+docker ps -a
+CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
+echo "${CONTAINER_ID}"
+docker port ${CONTAINER_ID}
+docker logs ${CONTAINER_ID}
+docker stop ${CONTAINER_ID}
+docker rm -f ${CONTAINER_ID}
+```
+
 ## New Build
 
 ```bash
