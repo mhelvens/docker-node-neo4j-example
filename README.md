@@ -74,7 +74,7 @@ CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
 echo "${CONTAINER_ID}"
 ```
 
-`d8b48cc029db
+`d8b48cc029db`
 
 ## Print logs and port output
 
