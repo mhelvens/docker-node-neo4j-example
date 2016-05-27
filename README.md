@@ -19,8 +19,7 @@ Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https:
 
 Linux Image (Openstack) 
 
-
-## New `docker-node-neo4j-example` Build
+## New Build
 
 ```bash
 docker build \
@@ -32,6 +31,7 @@ docker build \
 
 ```bash
 docker run \
+--name docker-node-neo4j \
 --publish=7474:7474 \
 --publish=80:80 \
 --volume=$HOME/neo4j/data:/data \
@@ -41,8 +41,22 @@ docker run \
 ## Get Container Id
 
 ```bash
-docker ps
+CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
 ```
+
+## Print output
+
+```bash
+docker logs ${CONTAINER_ID}
+```
+
+## curl it
+
+```bash
+curl -i  http://localhost:80
+```
+
+*******
 
 ## New Dockerfile
 
