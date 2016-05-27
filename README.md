@@ -16,7 +16,17 @@ check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/bl
 - https://github.com/neo4j/docker-neo4j/blob/89955a10604656aa8def4e3d658cc870818d7535/2.3.3/docker-entrypoint.sh  
 
 
+## Build
+
+```bash
+docker build \
+--force-rm=true \
+-t snewhouse/docker-node-neo4j-example:test-0.1 .
+```
+
 ## New Dockerfile
+
+
 
 ```
 FROM node:wheezy
@@ -51,8 +61,6 @@ RUN mv data /data \
 
 VOLUME /data
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-
 # Expose ports
 EXPOSE 80 
 EXPOSE 7474
@@ -60,4 +68,5 @@ EXPOSE 7474
 WORKDIR      /usr/src/app
 # Start neo4j and node servers
 CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
+###, ["/bin/bash", "/usr/src/app/docker-entrypoint.sh", "neo4j" ]
 ```
