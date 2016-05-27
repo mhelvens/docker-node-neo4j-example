@@ -68,7 +68,7 @@ docker stop ${CONTAINER_ID}
 docker rm -f ${CONTAINER_ID}
 ```
 
-## New Build
+## ## Testing Dockerfile build
 
 ```bash
 docker build \
