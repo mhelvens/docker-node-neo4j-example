@@ -65,6 +65,7 @@ CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
 echo "${CONTAINER_ID}"
 docker port ${CONTAINER_ID}
 docker logs ${CONTAINER_ID}
+curl -i localhost:7474
 docker stop ${CONTAINER_ID}
 docker rm -f ${CONTAINER_ID}
 ```
