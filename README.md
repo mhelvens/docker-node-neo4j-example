@@ -64,23 +64,61 @@ docker run \
 -d snewhouse/docker-node-neo4j-example:test-0.2
 ```
 
+d8b48cc029db8e14f7bdb39b079cce3ff83084e4f5bcd63444e0855cfc44001e
+
 ## Get Container Id
 
 ```bash
 CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
+echo "${CONTAINER_ID}"
 ```
+
+`d8b48cc029db
 
 ## Print logs and port output
 
 ```bash
 docker logs ${CONTAINER_ID}
+```
+
+```
+/usr/src/app/entrypoint.sh: line 3: /etc/init.d/neo4j-service: No such file or directory
+npm info it worked if it ends with ok
+npm info using npm@3.8.9
+npm info using node@v6.2.0
+npm info lifecycle docker-node-neo4j-example@0.1.0~prestart: docker-node-neo4j-example@0.1.0
+npm info lifecycle docker-node-neo4j-example@0.1.0~start: docker-node-neo4j-example@0.1.0
+
+> docker-node-neo4j-example@0.1.0 start /usr/src/app
+> node src/server.js
+
+Running on http://localhost:80
+```
+
+```bash
 docker port ${CONTAINER_ID}
+```
+```
+7474/tcp -> 0.0.0.0:7474
+80/tcp -> 0.0.0.0:80
 ```
 
 ## curl it
 
 ```bash
 curl -i  http://localhost:80
+```
+
+```
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 13
+ETag: W/"d-WcoO+p9WM8sDcbvANVR42A"
+Date: Fri, 27 May 2016 11:08:39 GMT
+Connection: keep-alive
+
+Hello world!
 ```
 
 **stop amd remove container**
