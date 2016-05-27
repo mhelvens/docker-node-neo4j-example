@@ -7,8 +7,7 @@ We used [this link](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 to figure out how to start.
 
 ### SJN test
-
-check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/sjn/sjn_test.md)
+Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/sjn/sjn_test.md)
 
 **links**  
 
@@ -16,7 +15,7 @@ check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/bl
 - https://github.com/neo4j/docker-neo4j/blob/89955a10604656aa8def4e3d658cc870818d7535/2.3.3/docker-entrypoint.sh  
 
 
-## Build
+## New Build
 
 ```bash
 docker build \
@@ -35,8 +34,6 @@ docker run \
 ```
 
 ## New Dockerfile
-
-
 
 ```
 FROM node:wheezy
