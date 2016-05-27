@@ -26,7 +26,8 @@ RUN curl --fail --silent --show-error --location --output neo4j.tar.gz $NEO4J_UR
 WORKDIR /var/lib/neo4j
 
 RUN mv data /data \
-    && ln --symbolic /data
+    && ln --symbolic /data && \
+    mv /usr/src/app/docker-entrypoint.sh /docker-entrypoint.sh
 
 VOLUME /data
 
@@ -34,7 +35,6 @@ VOLUME /data
 EXPOSE 80 
 EXPOSE 7474
 
-WORKDIR      /usr/src/app
 # Start neo4j and node servers
 ## CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
 CMD ["/bin/bash", "/usr/src/app/docker-entrypoint.sh", "neo4j" ]
