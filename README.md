@@ -47,7 +47,8 @@ Server:
 ```
 
 ## Testing alt.Dockerfile build
-- needed java
+- needed java  
+- [alt.Dockerfile](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/alt.Dockerfile)  
 
 ```bash
 git clone https://github.com/mhelvens/docker-node-neo4j-example.git
@@ -67,6 +68,37 @@ docker logs ${CONTAINER_ID}
 docker stop ${CONTAINER_ID}
 docker rm -f ${CONTAINER_ID}
 ```
+
+**`docker logs ${CONTAINER_ID}`**
+
+```
+Starting Neo4j Server console-mode...
+/var/lib/neo4j/data/log was missing, recreating...
+2016-05-27 11:38:26.157+0000 INFO  No SSL certificate found, generating a self-signed certificate..
+2016-05-27 11:38:30.423+0000 INFO  Successfully started database
+2016-05-27 11:38:30.450+0000 INFO  Starting HTTP on port 7474 (1 threads available)
+2016-05-27 11:38:30.704+0000 INFO  Enabling HTTPS on port 7473
+2016-05-27 11:38:30.847+0000 INFO  Mounting static content at /webadmin
+2016-05-27 11:38:30.908+0000 INFO  Mounting static content at /browser
+2016-05-27 11:38:32.745+0000 INFO  Remote interface ready and available at http://0.0.0.0:7474/
+```
+
+**`curl -i localhost:7474`**
+
+```
+HTTP/1.1 200 OK
+Date: Fri, 27 May 2016 11:39:56 GMT
+Content-Type: application/json; charset=UTF-8
+Access-Control-Allow-Origin: *
+Content-Length: 100
+Server: Jetty(9.2.9.v20150224)
+
+{
+  "management" : "http://localhost:7474/db/manage/",
+  "data" : "http://localhost:7474/db/data/"
+}
+```
+
 
 ## ## Testing Dockerfile build
 
