@@ -137,3 +137,30 @@ WORKDIR      /usr/src/app
 CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
 ###, ["/bin/bash", "/usr/src/app/docker-entrypoint.sh", "neo4j" ]
 ```
+
+## New package.json
+
+```
+{
+  "name": "docker-node-neo4j-example",
+  "version": "0.1.0",
+  "description": "an example docker image with a node.js server that uses neo4j",
+  "main": "server.js",
+  "scripts": {
+    "start":        "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url":  "git+https://github.com/mhelvens/docker-node-neo4j-example.git"
+  },
+  "author": "Michiel Helvensteijn <mhelvens@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhelvens/docker-node-neo4j-example/issues"
+  },
+  "homepage": "https://github.com/mhelvens/docker-node-neo4j-example#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
+```
