@@ -7,7 +7,8 @@ MAINTAINER Stephen J Newhouse <stephen.j.newhouse@gmail.com>
 #
 RUN apt-get update --fix-missing && \
     apt-get upgrade -y && \
-    apt-get install -y openjdk-7-jre && \
+    apt-get install -y --no-install-recommends \
+    openjdk-7-jre && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     apt-get clean && \
@@ -56,7 +57,7 @@ RUN mv data /data && \
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 # fix ownership
-RUN cd / && chown -R root:root ./*
+RUN chown -R root:root /var/lib/neo4j
 
 ################################################################################
 # Expose ports
