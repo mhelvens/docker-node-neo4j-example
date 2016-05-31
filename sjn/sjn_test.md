@@ -1,6 +1,70 @@
 # SJN Looksee
 
-On my macbook: 
+
+
+
+new testing in `sjn/Dockerfile`  
+
+```
+docker build --rm=true -t snewhouse/node-neo4j:alpha-04 .
+```
+
+```
+docker run \
+--publish=7474:7474 \
+--publish=80:80 \
+--volume=$HOME/neo4j/data:/data \
+--volume=$HOME/temp/scratch:/scratch \
+-d snewhouse/node-neo4j:alpha-04 /usr/src/app/start_neo4j_npm.sh  
+```
+
+```
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                                        NAMES
+087c867141f2        snewhouse/node-neo4j:alpha-02   "/bin/bash /usr/src/a"   20 seconds ago      Up 19 seconds       0.0.0.0:80->80/tcp, 0.0.0.0:7474->7474/tcp   serene_pasteur
+```
+
+port
+
+```
+7474/tcp -> 0.0.0.0:7474
+80/tcp -> 0.0.0.0:80
+```
+
+logs
+```
+> docker-node-neo4j-example@0.1.0 start /usr/src/app
+> node src/server.js
+```
+
+`curl -i http://192.168.99.100:80`
+
+```
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 13
+ETag: W/"d-WcoO+p9WM8sDcbvANVR42A"
+Date: Tue, 31 May 2016 13:00:07 GMT
+Connection: keep-alive
+
+Hello world!
+```
+
+
+should get :
+
+```
+Starting Neo4j.
+2016-05-31 13:26:35.118+0000 INFO  No SSL certificate found, generating a self-signed certificate..
+2016-05-31 13:26:35.399+0000 INFO  Starting...
+2016-05-31 13:26:35.742+0000 INFO  Bolt enabled on 0.0.0.0:7687.
+2016-05-31 13:26:37.469+0000 INFO  Started.
+2016-05-31 13:26:38.150+0000 INFO  Remote interface available at http://0.0.0.0:7474/
+```
+
+********************
+
+On my macbook:
 
 ```
 Darwin MacBook-Pro-6.local 15.4.0 Darwin Kernel Version 15.4.0: Fri Feb 26 22:08:05 PST 2016; root:xnu-3248.40.184~3/RELEASE_X86_64 x86_64
@@ -33,7 +97,7 @@ mhelvens/docker-node-neo4j-example   latest              4317be95c007        36 
 saw you were requesting docker run and build from `package.json`. not sure about this so I :-
 
 
-removed 
+removed
 
 ```
     "docker-build": "docker build -t mhelvens/docker-node-neo4j-example .",

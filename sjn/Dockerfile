@@ -1,5 +1,10 @@
 FROM node:wheezy
 
+MAINTAINER Stephen J Newhouse <stephen.j.newhouse@gmail.com>
+
+################################################################################
+# update and get java
+#
 RUN apt-get update --fix-missing && \
     apt-get upgrade -y && \
     apt-get install -y openjdk-7-jre && \
@@ -9,18 +14,27 @@ RUN apt-get update --fix-missing && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+################################################################################
 # Create app directory with source-code
+#
 RUN mkdir -p /usr/src/app
 COPY .       /usr/src/app
 WORKDIR      /usr/src/app
 
+################################################################################
 # Install app dependencies
+#
 RUN npm install
 RUN npm install node-neo4j
-RUN npm start &
 
+################################################################################
 # Install Neo4j
+# taken from dockerhub build for neo4j
+# https://hub.docker.com/_/neo4j/
+# https://github.com/neo4j/docker-neo4j/blob/89955a10604656aa8def4e3d658cc870818d7535/2.3.3/Dockerfile
+#
 WORKDIR /root
+
 ENV NEO4J_VERSION 2.3.3
 ENV NEO4J_EDITION community
 ENV NEO4J_DOWNLOAD_SHA256 01559c55055516a42ee2dd100137b6b55d63f02959a3c6c6db7a152e045828d9
@@ -36,27 +50,36 @@ RUN curl --fail --silent --show-error --location --output neo4j.tar.gz $NEO4J_UR
 
 WORKDIR /var/lib/neo4j
 
-RUN mv data /data \
-    && ln --symbolic /data
-    
-COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
-ENV PATH /opt/:$PATH
+RUN mv data /data && \
+  ln --symbolic /data
 
-# Volumes
-VOLUME /data
-VOLUME /usr/src/app
-VOLUME /scratch
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-ENV PATH /scratch/:$PATH
+# fix ownership
+RUN cd / && chown -R root:root ./*
+
+################################################################################
+# Expose ports
+# npm
+#
+EXPOSE 80
 
 # Expose ports
-EXPOSE 80 
+# neo4j
+# see internals of docker-entrypoint.sh
 EXPOSE 6001
 EXPOSE 5001
 EXPOSE 7474 7473
 
-# Start neo4j and node servers
-RUN /bin/bash /opt/docker-entrypoint.sh neo4j &
+################################################################################
+# Volumes
+#
+VOLUME /data
+VOLUME /scratch
 
-# ENTRYPOINT [ "/bin/bash", "/opt/docker-entrypoint.sh","neo4j"] 
+ENV PATH /scratch/:$PATH
+
+################################################################################
+# set CMD basic bash
+#
 CMD ["/bin/bash"]
