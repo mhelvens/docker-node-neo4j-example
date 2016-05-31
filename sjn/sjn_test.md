@@ -5,11 +5,22 @@
 
 new testing in `sjn/Dockerfile`  
 
+moved to AWS as mac is running out of space v quickly when it comes to dev.
+
 ```
+cd sjn/
 docker build --rm=true -t snewhouse/node-neo4j:alpha-04 .
 ```
 
 ```
+docker run \
+--rm=true \
+--publish=7474:7474 \
+--publish=80:80 \
+--volume=$HOME/neo4j/data:/data \
+--volume=$HOME/temp/scratch:/scratch \
+-it snewhouse/node-neo4j:alpha-04 bash
+
 docker run \
 --publish=7474:7474 \
 --publish=80:80 \
