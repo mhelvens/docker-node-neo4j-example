@@ -81,6 +81,14 @@ VOLUME /scratch
 ENV PATH /scratch/:$PATH
 
 ################################################################################
+# start up script
+#
+COPY start_neo4j_npm.sh /start_neo4j_npm.sh
+
+################################################################################
 # set CMD basic bash
 #
+WORKDIR /
+ENTRYPOINT ["/bin/bash", "/start_neo4j_npm.sh"]
 CMD ["/bin/bash"]
+
