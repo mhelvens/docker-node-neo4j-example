@@ -56,5 +56,7 @@ EXPOSE 5001
 EXPOSE 7474 7473
 
 # Start neo4j and node servers
-ENTRYPOINT [ "/bin/bash", "/opt/docker-entrypoint.sh","neo4j"] 
+RUN /bin/bash /opt/docker-entrypoint.sh neo4j &
+
+# ENTRYPOINT [ "/bin/bash", "/opt/docker-entrypoint.sh","neo4j"] 
 CMD ["/bin/bash"]
