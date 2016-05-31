@@ -1,35 +1,3 @@
-## compose test
-
-```
- node:
-  build: ./node
-  volumes:
-    - "./app:/src/app"
-  ports:
-    - "80:80"
-  links:
-    - "db:redis"
-  command: nodemon -L app/bin/www
-
-neo4j:
-  build: ./neo4j/
-  ports:
-    - "8080:8080"
-  volumes:
-    - /www/public
-  volumes_from:
-    - node
-  links:
-    - node:node
-```
-
-
-npm install request
-npm install node-neo4j
-
-
-
-```
 FROM node:wheezy
 
 RUN apt-get update --fix-missing && \
@@ -47,7 +15,8 @@ COPY .       /usr/src/app
 WORKDIR      /usr/src/app
 
 # Install app dependencies
-RUN npm install && npm install node-neo4j 
+RUN npm install
+RUN npm install node-neo4j
 RUN npm start &
 
 # Install Neo4j
@@ -89,25 +58,3 @@ EXPOSE 7474 7473
 # Start neo4j and node servers
 ENTRYPOINT [ "/bin/bash", "/opt/docker-entrypoint.sh","neo4j"] 
 CMD ["/bin/bash"]
-```
-
-******** 
-
-start_apps.sh
-
-```
-#!/usr/bin/env bash
-npm start && \
-/bin/bash /docker-entrypoint.sh neo4j
-```
-
-
-```
-  #  setting "org.neo4j.server.webserver.address" "0.0.0.0" neo4j-server.properties
-  #  setting "org.neo4j.server.database.mode" "${NEO4J_DATABASE_MODE:-}" neo4j-server.properties
-  #  setting "ha.server_id" "${NEO4J_SERVER_ID:-}" neo4j.properties
-  #  setting "ha.server" "${NEO4J_HA_ADDRESS:-}:6001" neo4j.properties
-  #  setting "ha.cluster_server" "${NEO4J_HA_ADDRESS:-}:5001" neo4j.properties
-  # setting "ha.initial_hosts" "${NEO4J_INITIAL_HOSTS:-}" neo4j.properties
- 
- ``` 
