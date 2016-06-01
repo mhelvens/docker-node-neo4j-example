@@ -6,6 +6,58 @@ Neo4j database together in a quick-to-deploy Docker image.
 We used [this link](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 to figure out how to start.
 
+
+## SJN Final
+
+- [Dockerfile](./Dockerfile)
+
+### Build it
+
+```bash
+docker build --rm=true -t snewhouse/node-neo4j:alpha-01 .
+```
+
+### Run it
+
+```bash
+## make dirs
+mkdir -p $HOME/neo4j/data
+mkdir -p $HOME/scratch
+
+## run
+docker run \
+--name node-neo4-app-01 \
+--publish=7473:7473 \
+--publish=7474:7474 \
+--publish=80:80 \
+--volume=$HOME/neo4j/data:/data \
+--volume=$HOME/scratch:/scratch \
+-d snewhouse/node-neo4j:alpha-01
+```
+
+### Is it running?
+
+```bash
+docker ps -a
+```
+
+### Test it
+
+```bash
+CONTAINER_ID=$(docker ps | grep docker-node-neo4j | awk '{print $1}')
+echo "${CONTAINER_ID}"
+
+docker port ${CONTAINER_ID}
+
+docker logs ${CONTAINER_ID}
+
+curl -i localhost:7474
+```
+
+
+**************************
+
+
 ### SJN test
 Testing `master` branch build and adding a tweak: Check out [sjn_test.md](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/sjn/sjn_test.md)
 
@@ -247,12 +299,12 @@ RUN mv data /data \
 VOLUME /data
 
 # Expose ports
-EXPOSE 80 
+EXPOSE 80
 EXPOSE 7474
 
 WORKDIR      /usr/src/app
 # Start neo4j and node servers
-CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ] 
+CMD [ "/bin/bash", "/usr/src/app/entrypoint.sh" ]
 ###, ["/bin/bash", "/usr/src/app/docker-entrypoint.sh", "neo4j" ]
 ```
 
