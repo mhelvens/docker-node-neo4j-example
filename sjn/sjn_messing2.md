@@ -21,7 +21,7 @@ docker run \
 --publish=80:80 \
 --volume=$HOME/neo4j/data:/data \
 --volume=$HOME/scratch:/scratch \
--it snewhouse/node-neo4j:alpha-06
+-it snewhouse/node-neo4j:alpha-06 
 ```
 
 ## above works. I can ssh into it and start node and neo4j
@@ -54,7 +54,7 @@ Connection: keep-alive
 Hello world!
 ```
 
-building image with `CMD ["/bin/bash","/start_neo4j_npm.sh"]`
+building image with `CMD ["/bin/bash","/start_neo4j_npm.sh"]` 
 
 ```bash
 cd sjn/
@@ -77,7 +77,7 @@ docker ps -a
 curl -i http://192.168.99.100:80
 ```
 
-try
+try 
 
 ```bash
 docker run \
@@ -93,11 +93,11 @@ docker ps -a
 curl -i http://192.168.99.100:80
 ```
 
-nope!
+nope! 
 
 so ...te
 
-building image with
+building image with 
 
 ```
 ENTRYPOINT ["/bin/bash"]
@@ -133,7 +133,7 @@ so above dont work now reverting back to:
 
 `CMD ["/bin/bash"]`
 
-scripts still in
+scripts still in 
 
 `COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh`
 `COPY start_neo4j_npm.sh /usr/local/bin/start_neo4j_npm.sh`
@@ -227,7 +227,7 @@ NOW....
 
 cp Dockerfile **`app.Dockerfile`**
 
-change:-
+change:- 
 
 `ENTRYPOINT ["/bin/bash","/usr/local/bin/start_neo4j_npm.sh"]`
 
@@ -515,3 +515,4 @@ Connection: keep-alive
 
 Hello world!
 ```
+
