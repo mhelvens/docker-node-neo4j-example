@@ -89,6 +89,5 @@ COPY start_neo4j_npm.sh /start_neo4j_npm.sh
 # set CMD basic bash
 #
 WORKDIR /
-ENTRYPOINT ["/bin/bash", "/start_neo4j_npm.sh"]
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "/start_neo4j_npm.sh"]
 
