@@ -91,4 +91,4 @@ RUN chmod 755 /usr/local/bin/start_neo4j_npm.sh
 # set CMD basic bash
 #
 WORKDIR /
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash","/usr/local/bin/start_neo4j_npm.sh"]

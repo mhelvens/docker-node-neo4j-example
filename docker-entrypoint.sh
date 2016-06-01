@@ -1,5 +1,8 @@
 #!/bin/bash -eu
 
+
+######################################
+# neo4j
 setting() {
     setting="${1}"
     value="${2}"
@@ -9,6 +12,7 @@ setting() {
     fi
 }
 
+######################################
 if [ "$1" == "neo4j" ]; then
     setting "keep_logical_logs" "${NEO4J_KEEP_LOGICAL_LOGS:-100M size}" neo4j.properties
     setting "dbms.pagecache.memory" "${NEO4J_CACHE_MEMORY:-512M}" neo4j.properties
@@ -78,4 +82,3 @@ elif [ "$1" == "dump-config" ]; then
 else
     exec "$@"
 fi
-
