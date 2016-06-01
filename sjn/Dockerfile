@@ -54,10 +54,11 @@ WORKDIR /var/lib/neo4j
 RUN mv data /data && \
   ln --symbolic /data
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # fix ownership
-RUN chown -R root:root /var/lib/neo4j
+RUN chown -R root:root /var/lib/neo4j && \
+  chmod 755 /usr/local/bin/docker-entrypoint.sh
 
 ################################################################################
 # Expose ports
@@ -83,11 +84,11 @@ ENV PATH /scratch/:$PATH
 ################################################################################
 # start up script
 #
-COPY start_neo4j_npm.sh /start_neo4j_npm.sh
+COPY start_neo4j_npm.sh /usr/local/bin/start_neo4j_npm.sh
+RUN chmod 755 /usr/local/bin/start_neo4j_npm.sh
 
 ################################################################################
 # set CMD basic bash
 #
 WORKDIR /
-CMD ["/bin/bash", "/start_neo4j_npm.sh"]
-
+CMD ["/bin/bash"]
