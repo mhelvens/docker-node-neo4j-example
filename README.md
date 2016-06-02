@@ -93,6 +93,13 @@ Linux : [http://localhost:7474/](http://localhost:7474/)
 
 ![](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/neo4jlocal.png)
 
+
+On Mac-OSX go to http://$(docker-machine ip default):80. (http://neo4j.com/developer/docker/)
+
+```
+echo $(docker-machine ip default)
+```
+
 ### curl it
 
 ```bash
