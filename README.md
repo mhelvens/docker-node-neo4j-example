@@ -84,9 +84,12 @@ Starting Neo4j Server console-mode...
 2016-06-01 14:30:07.425+0000 INFO  Remote interface ready and available at http://0.0.0.0:7474/
 ```
 
-### Check it in browser
+### Neo4j: check it in browser
 
-Go to : `http://192.168.99.100:7474/`
+Go to : 
+
+MAC : [http://192.168.99.100:7474/](http://192.168.99.100:7474/)  
+Linux : [http://localhost:7474/](http://localhost:7474/)  
 
 ![](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/neo4jlocal.png)
 
