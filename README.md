@@ -91,7 +91,7 @@ Starting Neo4j Server console-mode...
 
 Go to : `http://192.168.99.100:7474/`
 
-![]()
+![](https://github.com/mhelvens/docker-node-neo4j-example/blob/sjn-0.1/neo4jlocal.png)
 
 ### curl it
 
