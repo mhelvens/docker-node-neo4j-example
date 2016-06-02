@@ -63,14 +63,11 @@ docker logs ${CONTAINER_ID}
 ```
 
 ```
-sjnewhouse@MacBook-Pro-6:~/Google Drive/KHP_Informatics/docker-node-neo4j-example|sjn-0.1⚡
 ⇒  docker port ${CONTAINER_ID}
 7473/tcp -> 0.0.0.0:7473
 7474/tcp -> 0.0.0.0:7474
 80/tcp -> 0.0.0.0:80
-sjnewhouse@MacBook-Pro-6:~/Google Drive/KHP_Informatics/docker-node-neo4j-example|sjn-0.1⚡
-⇒
-sjnewhouse@MacBook-Pro-6:~/Google Drive/KHP_Informatics/docker-node-neo4j-example|sjn-0.1⚡
+
 ⇒  docker logs ${CONTAINER_ID}
 npm info it worked if it ends with ok
 npm info using npm@3.8.9
