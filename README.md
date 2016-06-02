@@ -18,13 +18,13 @@ docker pull snewhouse/node-neo4j:alpha-01
 
 **build from scratch:**
 
-### Build it
+## Build it
 
 ```bash
 docker build --rm=true --file=app.Dockerfile -t snewhouse/node-neo4j:alpha-01 .
 ```
 
-### Run it
+## Run it
 
 ```bash
 ## make dirs if ya need
@@ -42,7 +42,7 @@ docker run \
 -d snewhouse/node-neo4j:alpha-01
 ```
 
-### Is it running?
+## Is it running?
 
 ```bash
 docker ps -a
@@ -53,7 +53,7 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 ff594447ab48        snewhouse/node-neo4j:alpha-01   "/bin/bash /usr/local"   5 seconds ago       Up 5 seconds        5001/tcp, 0.0.0.0:80->80/tcp, 0.0.0.0:7473-7474->7473-7474/tcp, 6001/tcp   node-neo4-app-01
 ```
 
-### Test it
+## Test it
 
 ```bash
 CONTAINER_ID=$(docker ps | grep node-neo4-app-01 | awk '{print $1}')
@@ -84,7 +84,7 @@ Starting Neo4j Server console-mode...
 2016-06-01 14:30:07.425+0000 INFO  Remote interface ready and available at http://0.0.0.0:7474/
 ```
 
-### Neo4j: check it in browser
+## Neo4j: check it in browser
 
 Go to : 
 
@@ -100,7 +100,7 @@ On Mac-OSX go to http://$(docker-machine ip default):80. (http://neo4j.com/devel
 echo $(docker-machine ip default)
 ```
 
-### curl it
+## curl it
 
 ```bash
 # linux
@@ -123,7 +123,7 @@ Connection: keep-alive
 Hello world
 ```
 
-### Commit and push it
+## Commit and push it
 
 ```bash
 CONTAINER_ID=$(docker ps | grep node-neo4-app-01 | awk '{print $1}')
