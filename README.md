@@ -87,6 +87,12 @@ Starting Neo4j Server console-mode...
 2016-06-01 14:30:07.425+0000 INFO  Remote interface ready and available at http://0.0.0.0:7474/
 ```
 
+### Check it in browser
+
+Go to : `http://192.168.99.100:7474/`
+
+![]()
+
 ### curl it
 
 ```bash
